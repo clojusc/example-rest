@@ -43,3 +43,14 @@ Libraries used:
  * clj-http-fake
  * lein-kibit
  * lein cloverage
+
+To use kibit, cloverage, and midje from lein, you'll want to update your
+`~/.lein/profiles.clj" with something like the following:
+
+.. code:: clojure
+
+  {:user
+    {:plugins
+      [[lein-kibit "0.0.8"]
+       [lein-cloverage "1.0.2"]
+       [lein-midje "3.0.0"]]}}

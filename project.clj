@@ -9,8 +9,5 @@
   :profiles
   {:testing
     {:dependencies [[ring-mock "0.1.5"]
-                    [lein-cloverage "1.0.2"]
-                    [lein-kibit "0.0.8"]
                     [clj-http-fake "0.4.1"]
-                    [midje "1.5.1"]
-                    [lein-midje "3.0.0"]]}})
+                    [midje "1.5.1"]]}})
