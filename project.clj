@@ -3,8 +3,14 @@
   :url "http://localhost/example-api"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [compojure "1.1.5"]]
-  :plugins [[lein-ring "0.8.5"]]
+  :plugins [[lein-ring "0.8.5"]
+            [lein-exec "0.3.1"]]
   :ring {:handler example-rest-api.handler/app}
   :profiles
-  {:dev
-    {:dependencies [[ring-mock "0.1.5"]]}})
+  {:testing
+    {:dependencies [[ring-mock "0.1.5"]
+                    [lein-cloverage "1.0.2"]
+                    [lein-kibit "0.0.8"]
+                    [clj-http-fake "0.4.1"]
+                    [midje "1.5.1"]
+                    [lein-midje "3.0.0"]]}})
