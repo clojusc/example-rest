@@ -37,9 +37,9 @@ TBD
 Testing
 =======
 
- * mock
+Libraries used:
+ * ring-mock
  * midje
  * clj-http-fake
-
-
-
+ * lein-kibit
+ * lein cloverage
