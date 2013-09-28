@@ -8,13 +8,15 @@
 
 
 (defroutes app-routes
-  (GET "/" [] "Hello World!")
+  (GET "/" [] "Hello World!!!")
   (route/resources "/")
   (route/not-found const/four-oh-four-message))
 
-(defn get-handler
+(defn get-app
   ""
-  [options]
-  (if (util/in-dev? options)
-    (reload/wrap-reload (handler/site #'app-routes))
-    (handler/site app-routes)))
+  ([]
+    (get-app {}))
+  ([options]
+    (if (util/in-dev? options)
+      (reload/wrap-reload (handler/site #'app-routes))
+      (handler/site app-routes))))

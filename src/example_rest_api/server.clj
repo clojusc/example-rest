@@ -14,12 +14,12 @@
   otions necessary are:
    {:development true}"
   [options]
-  (let [app-handler (handler/get-handler options)
+  (let [app (handler/get-app options)
         port (util/get-port options)]
     (log/info "Running server on port" port)
     (if (util/in-dev? options)
       (log/info "Server is in development mode."))
-    (httpkit/run-server app-handler {:port port})))
+    (httpkit/run-server app {:port port})))
 
 (defn -start-dev-server
   "Run a dev HTTP server on the default port."
