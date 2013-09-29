@@ -1,5 +1,15 @@
 #!/usr/bin/env lein-exec-p
-(require '[example-rest-api.client :as client])
+(require '[example-rest-api.client :as client]
+         '[clojure.tools.cli :as cli]
+         '[example-rest-api.util :as util])
 
 
-(client/get-hello "http://localhost:8080")
+(let [[options args banner] (cli/cli *command-line-args*
+  ["-h" "--help" "Show Help"
+    :default false :flag true]
+  ["-b" "--base-url" "Base URL of the REST API server"
+    :default "http://localhost:8080"])]
+  (when (util/show-help? options)
+    (println banner)
+    (System/exit 0))
+  (client/get-hello (options :base-url)))

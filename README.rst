@@ -72,6 +72,17 @@ examples of this, making use of the `lein-exec` plugin. Another option would be
 to create standalone jar files for each of your scripts. That entails more work
 up front, but results in faster load times of the executable.
 
+The example scripts provide command line arguments and options parsring:
+
+.. code:: shell
+
+    $ ./scripts/get-hello -h
+
+     Switches               Default                Desc
+     --------               -------                ----
+     -h, --no-help, --help  false                  Show Help
+     -b, --base-url         http://localhost:8080  Base URL of the REST API server
+
 
 Deployment
 ==========
