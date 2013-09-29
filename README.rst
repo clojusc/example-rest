@@ -45,10 +45,56 @@ Layout
 TBD
 
 
+Development
+===========
+
+From the command line:
+
+TBD
+
+From the REPL:
+
+TBD
+
+
+Creating Project Tools
+======================
+
+It's always nice to deliver an API that already has at least one client library
+available, so that users are not forced to resort to `curl` and all the crazy,
+long command line arguments that come with that. With an API defined, creating
+a client library is very easy to do.
+
+The next step in creating a good experience for your future users is to create
+some tools based upon your client libraries. In particular, command line tools
+are an excellent step in that direction. The `scripts` directory gives some
+examples of this, making use of the `lein-exec` plugin. Another option would be
+to create standalone jar files for each of your scripts. That entails more work
+up front, but results in faster load times of the executable.
+
+
 Deployment
 ==========
 
-TBD
+The `Makefile` gives an example of doing standalone deployment with the
+`standalone` target:
+
+.. code:: shell
+
+    java -jar  target/example-rest-api-0.1.0-SNAPSHOT-standalone.jar
+
+That `.jar` file is built with the following command:
+
+.. code:: shell
+
+    make build
+
+Which, in turn, calls the following to build the standalone `.jar` file:
+
+.. code:: shell
+
+    lein compile
+    lein uberjar
 
 
 Testing
