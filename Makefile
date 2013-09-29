@@ -5,6 +5,15 @@ STANDALONE=target/$(PROJECT)-$(VERSION)-SNAPSHOT-standalone.jar
 clean:
 	rm -rf target
 
+script-setup:
+	wget https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec
+	wget https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec-p
+	chmod a+x lein-exec lein-exec-p
+	clear
+	@echo "Preparing to move lein-exec and lein-exec-p into /usr/local/bin ..."
+	@read
+	sudo mv lein-exec lein-exec-p  /usr/local/bin
+
 build: clean
 	@lein compile
 	@lein uberjar
