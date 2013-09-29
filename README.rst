@@ -1,11 +1,25 @@
-######################################
-An Example REST API Server for Clojure
-######################################
+####################
+REST APIs in Clojure
+####################
+
+*An Example*
 
 Purpose
 =======
 
-TBD
+For those new to Clojure, we wanted to offer an example project that provides
+insight on ways one can do the following in a REST API:
+
+* Define functions that comprise the REST API
+* Define routes that call the REST API functions
+* Have functions that access databases
+* Have functions with expensive calls whose results get cached
+* Configure logging
+* Provide a client library for the REST API
+* Provide executable scripts that use the client library
+* Include unit tests, functional tests, style checking, and test coverag
+* Provide a means of running code in development mode locally
+* Provide standalone .jar files for deplopyment into production
 
 
 Components
@@ -13,14 +27,17 @@ Components
 
 REST API:
  * compojure
+
+SQL and Databases:
  * clojure.contrib.sql and korma
- * spyglass
  * monger
 
-A note on the use of korma vs. clojure.contrib.sql:
+Caching:
+ * spyglass
 
 Client Library:
  * clj-http-client
+
 
 Layout
 ------
