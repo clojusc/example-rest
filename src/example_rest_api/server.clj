@@ -16,9 +16,6 @@
   [options]
   (let [app (handler/get-app options)
         port (util/get-port options)]
-    (log/info "Running server on port" port)
-    (if (util/in-dev? options)
-      (log/info "Server is in development mode."))
     (httpkit/run-server app {:port port})))
 
 (defn -start-dev-server
@@ -42,14 +39,17 @@
   (fn [command]
     (case command
       :start (fn []
+               (log/info "Running server on port" config/default-port)
                (new-manager
                  options
                  (-start-server options)))
       :start-dev (fn [port]
+                   (log/info "Running development server on port" port)
                    (new-manager
                      {:port port}
                      (-start-dev-server port)))
       :stop (fn []
+              (log/info "Stopping server")
               (new-manager
                 options
                 (server))))))

@@ -16,4 +16,6 @@
     (when (util/show-help? options)
       (println banner)
       (System/exit 0))
-    (server/start server-manager)))
+    (if (util/in-dev? options)
+      (server/start-dev server-manager :port config/default-port)
+      (server/start server-manager))))
