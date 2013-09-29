@@ -1,0 +1,5 @@
+#!/usr/bin/env lein-exec-p
+(require '[example-rest-api.client :as client])
+
+
+(client/get-hello "http://localhost:8080")
