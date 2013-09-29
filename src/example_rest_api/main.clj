@@ -17,5 +17,5 @@
       (println banner)
       (System/exit 0))
     (if (util/in-dev? options)
-      (server/start-dev server-manager :port config/default-port)
+       (server/start-dev server-manager :port config/default-port)
       (server/start server-manager))))

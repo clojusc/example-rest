@@ -30,5 +30,7 @@ test-only:
 coverage-only:
 	@lein with-profile testing cloverage  --text --html
 	@cat target/coverage/coverage.txt
+	@echo "body {background-color: #000; color: #fff;} \
+	a {color: #A5C0F0;}" >> target/coverage/coverage.css
 
 check: kibit-only test-only coverage-only
