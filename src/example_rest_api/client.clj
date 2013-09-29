@@ -5,10 +5,17 @@
            [java.io EOFException]))
 
 
-(defn get-hello [base-url]
-  (try ((http/get (str base-url "/")) :body)
+(defn error-catcher [func]
+  (try (func)
     (catch ConnectException error
       (log/error (.getMessage error)))
     (catch EOFException error
       (log/error (.getMessage error)))))
 
+(defn get-body [data]
+  (data :body))
+
+(defn get-hello [base-url]
+  (error-catcher
+    #(get-body
+      (http/get (str base-url "/")))))
