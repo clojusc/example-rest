@@ -7,7 +7,8 @@
                  [compojure "1.1.5"]
                  [ring/ring-devel "1.2.0"]
                  [ring/ring-core "1.2.0"]
-                 [http-kit "2.1.11"]]
+                 [http-kit "2.1.11"]
+                 [clj-logging-config "1.9.10"]]
   :plugins [[lein-ring "0.8.5"]
             [lein-exec "0.3.1"]]
   :ring {:handler example-rest-api.handler/app}
