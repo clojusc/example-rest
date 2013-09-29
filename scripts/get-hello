@@ -1,11 +1,8 @@
 #!/usr/bin/env lein-exec-p
 (require '[clojure.tools.cli :as cli]
-         '[clj-logging-config.log4j :as log-config]
          '[example-rest-api.client :as client]
          '[example-rest-api.util :as util])
 
-
-(log-config/set-logger!)
 
 (let [[options args banner] (cli/cli *command-line-args*
   ["-h" "--help" "Show Help"
