@@ -22,8 +22,25 @@ insight on ways one can do the following in a REST API:
 * Provide standalone .jar files for deplopyment into production
 
 
-Components
+What Next?
 ==========
+
+What should I look at first, if I'm a new Clojure web developer?
+
+Well, you should definitely ready the rest of this README. Then you might want
+to check out the following, probably in order:
+
+* src/example-rest-api/routes.clj
+* src/example-rest-api/api.clj
+* src/example-rest-api/client.clj
+* scripts/get-hello
+
+
+Anatomy of this REST Project
+============================
+
+Components
+----------
 
 REST API:
  * compojure
