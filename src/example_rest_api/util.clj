@@ -1,5 +1,6 @@
 (ns example-rest-api.util
-  (:require [clojure.tools.cli :as cli]))
+  (:require [clojure.tools.cli :as cli])
+  (:import [java.util Date]))
 
 
 (defn parse-options [args]
@@ -19,3 +20,19 @@
 
 (defn get-port [options]
   (options :port))
+
+(defn now []
+  (Date.))
+
+(defmulti strftime
+  "Format time t according to format string fmt.
+
+  Note that this was copied from Miki Tebeka's work here:
+    https://github.com/tebeka/clj-strftime/blob/master/src/strftime.clj"
+  (fn [fmt t] (class t)))
+
+(defmethod strftime Date
+  [fmt t]
+  ; Convert strftime to String.format format (e.g. %m -> %1$tm)
+  (let [fmt (.replaceAll fmt "%([a-zA-Z])" "%1\\$t$1")]
+    (format fmt t)))
