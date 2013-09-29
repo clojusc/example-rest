@@ -1,5 +1,6 @@
 (ns example-rest-api.server
-  (:require [clojure.tools.logging :as log]
+  (:require [clojure.repl :as repl]
+            [clojure.tools.logging :as log]
             [org.httpkit.server :as httpkit]
             [example-rest-api.config :as config]
             [example-rest-api.handler :as handler]
@@ -50,26 +51,14 @@
                      (-start-dev-server port)))
       :stop (fn []
               (log/info "Stopping server")
-              (new-manager
-                options
-                (server))))))
+              ;(server)
+              (System/exit 0)))))
 
 (defn -do-server-action [server command]
   "This is used as a convenience function in the following functions to avoid
   typing multiple 'apply's for every function that needs to call into the server
   manager."
   (apply server [command]))
-
-(defn start [server]
-  "A function for starting a server.
-
-  Generally, a regular server will be started via the command-line with
-  command-line options. As such, no options are provided for this function."
-  (apply (-do-server-action server :start) []))
-
-(defn start-dev [server & {:keys [port] :or {:port config/default-port}}]
-  "A function for starting a development server with an optional :port keyword."
-  (apply (-do-server-action server :start-dev) [port]))
 
 (defn stop [server]
   "A function for stoping a server.
@@ -79,6 +68,19 @@
     => (stop server)
   "
   (apply (-do-server-action server :stop) []))
+
+(defn start [server]
+  "A function for starting a server.
+
+  Generally, a regular server will be started via the command-line with
+  command-line options. As such, no options are provided for this function."
+  (repl/set-break-handler! (fn [_] (stop server)))
+  (apply (-do-server-action server :start) []))
+
+(defn start-dev [server & {:keys [port] :or {:port config/default-port}}]
+  "A function for starting a development server with an optional :port keyword."
+  (repl/set-break-handler! (fn [_] (stop server)))
+  (apply (-do-server-action server :start-dev) [port]))
 
 (defn run []
   "Run a regular server. Any changes made to files while running this server
