@@ -1,4 +1,4 @@
-(ns example-rest.client
+(ns example-rest.client.core
   (:require [clojure.tools.logging :as log]
             [clj-http.client :as http])
   (:import [java.net ConnectException]
