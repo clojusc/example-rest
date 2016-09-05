@@ -1,8 +1,8 @@
-(ns example-rest-api.handler
+(ns example-rest.server.handler
   (:require [compojure.handler :as handler]
             [ring.middleware.reload :as reload]
-            [example-rest-api.routes :as routes]
-            [example-rest-api.util :as util]))
+            [example-rest.server.routes :as routes]
+            [example-rest.util :as util]))
 
 
 (defn get-app

@@ -1,11 +1,9 @@
-(ns example-rest-api.server
+(ns example-rest.core.server
   (:require [clojure.repl :as repl]
             [clojure.tools.logging :as log]
             [org.httpkit.server :as httpkit]
-            [example-rest-api.config :as config]
-            [example-rest-api.handler :as handler]
-            [example-rest-api.util :as util]))
-
+            [example-rest.server.handler :as handler]
+            [example-rest.util :as util]))
 
 (defn -start-server
   "Run an HTTP server. This is what ends up actually calling the http-kit

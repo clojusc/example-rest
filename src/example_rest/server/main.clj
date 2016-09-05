@@ -1,10 +1,8 @@
-(ns example-rest-api.main
+(ns example-rest.server.main
   (:require [clojure.tools.logging :as log]
-            [example-rest-api.config :as config]
-            [example-rest-api.server :as server]
-            [example-rest-api.util :as util])
+            [example-rest.server.core :as server]
+            [example-rest.util :as util])
   (:gen-class))
-
 
 (defn -main
   "This is the entry point.

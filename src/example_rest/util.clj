@@ -2,7 +2,6 @@
   (:require [clojure.tools.cli :as cli])
   (:import [java.util Date]))
 
-
 (defn parse-options [args]
   (cli/cli args
     ["-h" "--help" "Show Help"
