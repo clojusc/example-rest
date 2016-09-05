@@ -14,12 +14,21 @@
     [clj-http "0.7.7"]
     [compojure "1.1.5"]
     [http-kit "2.1.11"]
-    [ring/ring-devel "1.2.0"]
-    [ring/ring-core "1.2.0"]]
-  :plugins [[lein-ring "0.8.5"]
-            [lein-ring "0.9.7"]]
-  :ring {:handler example-rest-api.handler/app}
-  :main example-rest-api.main
+    [com.stuartsierra/component "0.3.1"]
+    [ring.middleware.logger "0.5.0" :exclusions [org.slf4j/slf4j-log4j12]]
+    [ring/ring-core "1.5.0"]
+    [ring/ring-defaults "0.2.1"]
+    [ring/ring-devel "1.5.0"]
+    [ring/ring-jetty-adapter "1.5.0"]
+    [ring/ring-json "0.4.0"]
+    [leiningen-core "2.7.0"]]
+  :main example-rest.server.app
+  :rest-server {
+    :host "localhost"
+    :port 10008}
+  :logging {
+    :level :info
+    :namespaces [example-rest ring onelog]}
   :profiles {
     :uber {
       :aot :all}
@@ -42,7 +51,7 @@
           :doc "Documentation forthcoming"}}}
     :dev {
       :dependencies [
-        [org.clojure/tools.namespace "0.2.11"]
-        [lein-simpleton "1.3.0"]]
+        [org.clojure/tools.namespace "0.2.11"]]
+      :plugins [[lein-ring "0.9.7"]]
       :source-paths ["dev-resources/src"]
-      :repl-options {:init-ns coati.dev}}})
+      :repl-options {:init-ns example-rest.dev}}})

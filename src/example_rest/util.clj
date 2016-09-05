@@ -1,24 +1,11 @@
-(ns example-rest-api.util
-  (:require [clojure.tools.cli :as cli])
+(ns example-rest.util
   (:import [java.util Date]))
 
-(defn parse-options [args]
-  (cli/cli args
-    ["-h" "--help" "Show Help"
-      :default false :flag true]
-    ["-p" "--port" "Port to listen to"
-      :default 8080 :parse-fn #(Integer. %)]
-    ["-d" "--development" "Run server in development mode"
-      :default false :flag true]))
-
-(defn in-dev? [options]
-  (options :development))
-
-(defn show-help? [options]
-  (options :help))
-
-(defn get-port [options]
-  (options :port))
+(defn in?
+  "This function returns true if the provided seqenuce contains the given
+  elment."
+  [sequence elm]
+  (some #(= elm %) sequence))
 
 (defn now []
   (Date.))
@@ -35,3 +22,12 @@
   ; Convert strftime to String.format format (e.g. %m -> %1$tm)
   (let [fmt (.replaceAll fmt "%([a-zA-Z])" "%1\\$t$1")]
     (format fmt t)))
+
+(defn get-local-ip
+  "Get the IP address of the local machine."
+  []
+  (.getHostAddress (java.net.InetAddress/getLocalHost)))
+
+(defn add-shutdown-handler [func]
+  (.addShutdownHook (Runtime/getRuntime)
+                    (Thread. func)))
