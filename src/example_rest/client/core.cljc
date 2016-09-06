@@ -30,13 +30,13 @@
              :patch #'http/patch)))
 
 (defn http-call [method path args]
-  (log/infof "method, path, args: [%s \"%s\" %s]" method path args)
+  (log/tracef "method, path, args: [%s \"%s\" %s]" method path args)
   (let [[{debug :debug}] args
         func (get-http-func method)
         args (into [path] args)
         response (apply func args)
         data (ClientData. (:body response) nil nil)]
-    (log/info "Got result:" data)
+    (log/debug "Got result:" data)
     (if debug
       (assoc data :debug {:response response})
       data)))
