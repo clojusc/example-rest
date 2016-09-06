@@ -11,6 +11,14 @@
 
 (def state :stopped)
 (def system nil)
+(def running-states [:started :running])
+(def init-running-states (into running-states [:initialized]))
+
+(defn running? [state]
+  (util/in? running-states state))
+
+(defn init-running? [state]
+  (util/in? init-running-states state))
 
 (defn init []
   (if (util/in? [:initialized :started :running] state)
@@ -22,7 +30,7 @@
   state)
 
 (defn deinit []
-  (if (util/in? [:started :running] state)
+  (if (running? state)
     (log/error "System is not stopped; please stop before deinitializing.")
     (do
       (alter-var-root #'system (fn [_] nil))
@@ -33,7 +41,7 @@
   ([]
     (if (nil? system)
       (init))
-    (if (util/in? [:started :running] state)
+    (if (running? state)
       (log/error "System has already been started.")
       (do
         (alter-var-root #'system component/start)
@@ -64,7 +72,7 @@
   (if (= state :running)
     (log/error "System is already running.")
     (do
-      (if (not (util/in? [:initialized :started :running] state))
+      (if (not (init-running? state))
         (init))
       (if (not= state :started)
         (start))
@@ -80,7 +88,7 @@
 (defn refresh
   "This is essentially an alias for clojure.tools.namespace.repl/refresh."
   [& args]
-  (if (util/in? [:started :running] state)
+  (if (running? state)
     (stop))
   (apply -refresh args))
 
