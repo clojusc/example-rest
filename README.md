@@ -10,14 +10,16 @@
 ##### Contents
 
 * [Background](#background-)
+* [About](#about-)
   * [I'm New!](#im-new-)
-* [Anatomy](#anatomy-)
-  * [Components](#Components-)
-  * [Layout](#layout-)
+  * [Anatomy](#anatomy-)
+    * [Layout](#layout-)
+    * [Server](#server-)
+    * [Client](#client-)
+    * [CLI](#cli-)
 * [Development](#development-)
-* [CLI](#cli-)
-* [Deployment](#license-)
 * [Testing](#license-)
+* [Deployment](#license-)
 * [License](#license-)
 
 
@@ -44,6 +46,8 @@ chops are a bit rusty, and just need to get a jump-start for a new REST
 project.
 
 
+## About [&#x219F;](#contents)
+
 ### I'm New! [&#x219F;](#contents)
 
 What should I look at first, if I'm a new Clojure web developer?
@@ -57,31 +61,27 @@ to check out the following, probably in order:
 * `scripts/get-hello`
 
 
-## Anatomy [&#x219F;](#contents)
+### Anatomy [&#x219F;](#contents)
 
 ... Of this REST Project
 
-### Components [&#x219F;](#contents)
 
-TBD
-
-### Layout [&#x219F;](#contents)
-
-TBD
-
-
-## Development [&#x219F;](#contents)
-
-From the command line:
-
-TBD
-
-From the REPL:
+#### Layout [&#x219F;](#contents)
 
 TBD
 
 
-## CLI [&#x219F;](#contents)
+#### Server [&#x219F;](#contents)
+
+TBD
+
+
+#### Client [&#x219F;](#contents)
+
+TBD
+
+
+#### CLI [&#x219F;](#contents)
 
 [This section is showing all of its three years of age ... updates pending]
 
@@ -110,6 +110,26 @@ $ ./scripts/get-hello -h
  -b, --base-url         http://localhost:8080  Base URL of the REST API server
 ```
 
+
+## Development [&#x219F;](#contents)
+
+From the command line:
+
+TBD
+
+From the REPL:
+
+TBD
+
+
+## Testing [&#x219F;](#contents)
+
+Libraries used:
+ * clojure.test
+ * lein-kibit
+ * eastwood
+
+
 ## Deployment [&#x219F;](#contents)
 
 The `Makefile` gives an example of doing standalone deployment with the
@@ -131,13 +151,6 @@ Which, in turn, calls the following to build the standalone `.jar` file:
 $ lein compile
 $ lein uberjar
 ```
-
-## Testing [&#x219F;](#contents)
-
-Libraries used:
- * clojure.test
- * lein-kibit
- * eastwood
 
 
 ## License [&#x219F;](#contents)
