@@ -45,10 +45,10 @@ What should I look at first, if I'm a new Clojure web developer?
 Well, you should definitely ready the rest of this README. Then you might want
 to check out the following, probably in order:
 
-* src/example-rest-api/routes.clj
-* src/example-rest-api/api.clj
-* src/example-rest-api/client.clj
-* scripts/get-hello
+* `src/example-rest/server/routes.clj`
+* `src/example-rest/server/api.clj`
+* `src/example-rest/client/core.clj`
+* `scripts/get-hello`
 
 
 ## Anatomy [&#x219F;](#contents)
