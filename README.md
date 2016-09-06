@@ -9,8 +9,8 @@
 
 ##### Contents
 
-* [Purpose](#purpose-)
-* [I'm New!](#im-new-)
+* [Background](#background-)
+  * [I'm New!](#im-new-)
 * [Anatomy](#anatomy-)
   * [Components](#Components-)
   * [Layout](#layout-)
@@ -21,24 +21,30 @@
 * [License](#license-)
 
 
-## Purpose [&#x219F;](#contents)
+## Background [&#x219F;](#contents)
 
-For those new to Clojure, we wanted to offer an example project that provides
-insight on ways one can do the following in a REST API:
+This project started as a resources for engineers who were learning Clojure
+during Hack Day events at work. For those who were new to Clojure, we wanted
+to offer an example project that provided insight on ways one can do the
+following:
 
-* Define functions that comprise the REST API
-* Define routes that call the REST API functions
-* Have functions that access databases
-* Have functions with expensive calls whose results get cached
-* Configure logging
+* Define functions that comprise the REST server
+* Define routes that call the REST API functions (separating HTTP-spefific
+  code from "business logic" code)
+* Configuration, logging, and database components
+* Have functions that access a data source
 * Provide a client library for the REST API
 * Provide executable scripts that use the client library
-* Include unit tests, functional tests, style checking, and test coverag
+* Include unit tests, functional tests, and style checking/linting
 * Provide a means of running code in development mode locally
 * Provide standalone .jar files for deplopyment into production
 
+Since then, this has become a resource for seasoned devs whose Clojure REST
+chops are a bit rusty, and just need to get a jump-start for a new REST
+project.
 
-## I'm New! [&#x219F;](#contents)
+
+### I'm New! [&#x219F;](#contents)
 
 What should I look at first, if I'm a new Clojure web developer?
 
@@ -76,6 +82,8 @@ TBD
 
 
 ## CLI [&#x219F;](#contents)
+
+[This section is showing all of its three years of age ... updates pending]
 
 *Creating Project Tools ...*
 
