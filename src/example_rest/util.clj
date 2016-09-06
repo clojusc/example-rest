@@ -1,4 +1,6 @@
 (ns example-rest.util
+  (:require [clojure.tools.logging :as log]
+            [dire.core :refer [with-handler!]])
   (:import [java.util Date]))
 
 (defn in?
@@ -31,3 +33,20 @@
 (defn add-shutdown-handler [func]
   (.addShutdownHook (Runtime/getRuntime)
                     (Thread. func)))
+
+(defn get-message [exception]
+  (if (map? exception)
+    exception
+    (.getMessage exception)))
+
+(defn process-error [exception id]
+  (let [error-data {:id id}]
+    (log/error id)
+    (assoc error-data :detail (get-message exception))))
+
+(defn add-error-handler [func ex err-id err-status]
+  (with-handler!
+    func
+    ex
+    (fn [e & args]
+      (process-error e err-id))))
