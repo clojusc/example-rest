@@ -166,8 +166,8 @@ Distributed under the Apache License Version 2.0.
 [travis-badge]: https://travis-ci.org/clojusc/example-rest-server.png?branch=master
 [deps]: http://jarkeeper.com/clojusc/example-rest-server
 [deps-badge]: http://jarkeeper.com/clojusc/example-rest-server/status.svg
-[logo]: resources/images/logo.png
-[logo-large]: resources/images/logo-large.png
+[logo]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=250
+[logo-large]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=1000
 [tag-badge]: https://img.shields.io/github/tag/clojusc/example-rest-server.svg?maxAge=2592000
 [tag]: https://github.com/clojusc/example-rest-server/tags
 [clojure-v]: https://img.shields.io/badge/clojure-1.8.0-blue.svg
