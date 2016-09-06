@@ -44,9 +44,16 @@
     (log/error id)
     (assoc error-data :detail (get-message exception))))
 
-(defn add-error-handler [func ex err-id err-status]
-  (with-handler!
-    func
-    ex
-    (fn [e & args]
-      (process-error e err-id))))
+(defn add-error-handler
+  ([func ex err-id err-status]
+    (with-handler!
+      func
+      ex
+      (fn [e & args]
+        (process-error e err-id))))
+  ([func ex err-id err-status error-func]
+    (with-handler!
+      func
+      ex
+      (fn [e & args]
+        (error-func e args err-id err-status (process-error e err-id))))))
