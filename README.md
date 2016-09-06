@@ -100,7 +100,7 @@ $ ./scripts/get-hello -h
  --------               -------                ----
  -h, --no-help, --help  false                  Show Help
  -b, --base-url         http://localhost:8080  Base URL of the REST API server
-
+```
 
 ## Deployment [&#x219F;](#contents)
 
