@@ -1,4 +1,4 @@
-# Example EST Server in Clojure
+# Example REST Server in Clojure
 
 [![Build Status][travis-badge]][travis][![Dependencies Status][deps-badge]][deps][![Clojars Project][clojars-badge]][clojars][![Clojure version][clojure-v]](project.clj)
 
