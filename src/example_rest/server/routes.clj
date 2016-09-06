@@ -1,5 +1,6 @@
 (ns example-rest.server.routes
-  (:require [compojure.core :refer [GET OPTIONS POST PUT DELETE context defroutes]]
+  (:require [compojure.core :refer [GET OPTIONS POST PUT DELETE
+                                    context defroutes]]
             [compojure.route :as route]))
 
 (defroutes v1
