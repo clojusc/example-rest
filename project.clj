@@ -9,11 +9,11 @@
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [
     [org.clojure/clojure "1.8.0"]
-    [org.clojure/tools.cli "0.2.4"]
+    [org.clojure/tools.cli "0.3.5"]
     [clojusc/twig "0.2.3"]
-    [clj-http "0.7.7"]
-    [compojure "1.1.5"]
-    [http-kit "2.1.11"]
+    [clj-http "3.2.0"]
+    [compojure "1.5.1"]
+    [http-kit "2.2.0"]
     [com.stuartsierra/component "0.3.1"]
     [ring.middleware.logger "0.5.0" :exclusions [org.slf4j/slf4j-log4j12]]
     [ring/ring-core "1.5.0"]
@@ -40,7 +40,7 @@
       :integration :integration}}
     :doc {
       :plugins [
-        [lein-codox "0.9.5"]]
+        [lein-codox "0.9.7"]]
       :codox {
         :project {:name "example-rest"}
         :output-path "docs/master/current"
