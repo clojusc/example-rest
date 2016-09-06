@@ -6,12 +6,7 @@
            [java.io EOFException])
   (:refer-clojure :exclude [get]))
 
-(defn error-catcher [func]
-  (try (func)
-    (catch ConnectException error
-      (log/error (.getMessage error)))
-    (catch EOFException error
-      (log/error (.getMessage error)))))
+(defrecord ClientData [result debug errors])
 
 (defn get-http-func [method]
   #?(:clj (case method
@@ -35,40 +30,88 @@
              :patch #'http/patch)))
 
 (defn http-call [method path args]
-  (log/infof "method, path, args: [%s %s %s]" method path args)
-  (let [result (apply (get-http-func method) (into [method path] args))]
-    (log/info "Got result:" result)
-    result))
+  (log/infof "method, path, args: [%s \"%s\" %s]" method path args)
+  (let [[{debug :debug}] args
+        func (get-http-func method)
+        args (into [path] args)
+        response (apply func args)
+        data (ClientData. (:body response) nil nil)]
+    (log/info "Got result:" data)
+    (if debug
+      (assoc data :debug {:response response})
+      data)))
 
-(defn get [path & args]
-  (http-call :get path args))
+(defn get
+  ([path]
+    (get path []))
+  ([path args]
+    (http-call :get path args)))
 
-(defn head [path & args]
-  (http-call :head path args))
+(defn head
+  ([path]
+    (head path []))
+  ([path args]
+    (http-call :head path args)))
 
-(defn post [path & args]
-  (http-call :post path args))
+(defn post
+  ([path]
+    (post path []))
+  ([path args]
+    (http-call :post path args)))
 
-(defn put [path & args]
-  (http-call :put path args))
+(defn put
+  ([path]
+    (put path []))
+  ([path args]
+    (http-call :put path args)))
 
-(defn delete [path & args]
-  (http-call :delete path args))
+(defn delete
+  ([path]
+    (delete path []))
+  ([path args]
+    (http-call :delete path args)))
 
-(defn options [path & args]
-  (http-call :options path args))
+(defn options
+  ([path]
+    (options path []))
+  ([path args]
+    (http-call :options path args)))
 
-(defn copy [path & args]
-  (http-call :copy path args))
+(defn copy
+  ([path]
+    (copy path []))
+  ([path args]
+    (http-call :copy path args)))
 
-(defn move [path & args]
-  (http-call :move path args))
+(defn move
+  ([path]
+    (move path []))
+  ([path args]
+    (http-call :move path args)))
 
-(defn patch [path & args]
-  (http-call :patch path args))
+(defn patch
+  ([path]
+    (patch path []))
+  ([path args]
+    (http-call :patch path args)))
+
+(defn error-gen [ex args err-id err-status error-data]
+  (ClientData. nil
+               {:error-id err-id
+                :status err-status
+                :args args}
+               [error-data]))
+
+(util/add-error-handler
+  #'http-call
+  ConnectException
+  :no-server-connection
+  500
+  #'error-gen)
 
 (util/add-error-handler
   #'http-call
   [:status 404]
   :not-found
-  404)
+  404
+  #'error-gen)
