@@ -1,8 +1,7 @@
 #!/usr/bin/env lein-exec-p
 (require '[clojure.tools.cli :as cli]
-         '[example-rest-api.client :as client]
-         '[example-rest-api.util :as util])
-
+         '[example-rest.client.core :as client]
+         '[example-rest.util :as util])
 
 (let [[options args banner] (cli/cli *command-line-args*
   ["-h" "--help" "Show Help"
