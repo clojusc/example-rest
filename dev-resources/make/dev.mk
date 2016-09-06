@@ -1,5 +1,5 @@
 repl:
-	lein trampoline repl
+	lein repl
 
 publish:
 	lein deploy clojars
