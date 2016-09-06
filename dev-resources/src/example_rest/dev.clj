@@ -1,9 +1,10 @@
-(ns example_rest.dev
-  (:require [clojure.java.io :as io]
-            [clojure.tools.logging :as log]
+(ns example-rest.dev
+  (:require [clojure.tools.logging :as log]
             [clojure.tools.namespace.repl :as repl]
             [clojure.walk :refer [macroexpand-all]]
             [com.stuartsierra.component :as component]
+            [example-rest.client.api :as client-api]
+            [example-rest.client.core :as client]
             [example-rest.server.app :as app]
             [example-rest.server.components :as components]
             [example-rest.util :as util]))
