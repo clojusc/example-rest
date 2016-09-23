@@ -162,15 +162,15 @@ Distributed under the Apache License Version 2.0.
 
 <!-- Named page links below: /-->
 
-[travis]: https://travis-ci.org/clojusc/example-rest-server
-[travis-badge]: https://travis-ci.org/clojusc/example-rest-server.png?branch=master
-[deps]: http://jarkeeper.com/clojusc/example-rest-server
-[deps-badge]: http://jarkeeper.com/clojusc/example-rest-server/status.svg
+[travis]: https://travis-ci.org/clojusc/example-rest
+[travis-badge]: https://travis-ci.org/clojusc/example-rest.png?branch=master
+[deps]: http://jarkeeper.com/clojusc/example-rest
+[deps-badge]: http://jarkeeper.com/clojusc/example-rest/status.svg
 [logo]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=200
 [logo-large]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=1000
-[tag-badge]: https://img.shields.io/github/tag/clojusc/example-rest-server.svg?maxAge=2592000
-[tag]: https://github.com/clojusc/example-rest-server/tags
+[tag-badge]: https://img.shields.io/github/tag/clojusc/example-rest.svg?maxAge=2592000
+[tag]: https://github.com/clojusc/example-rest/tags
 [clojure-v]: https://img.shields.io/badge/clojure-1.8.0-blue.svg
-[clojars]: https://clojars.org/clojusc/example-rest-server
-[clojars-badge]: https://img.shields.io/clojars/v/clojusc/example-rest-server.svg
+[clojars]: https://clojars.org/clojusc/example-rest
+[clojars-badge]: https://img.shields.io/clojars/v/clojusc/example-rest.svg
 
