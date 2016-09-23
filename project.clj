@@ -9,7 +9,7 @@
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [
     [clj-http "3.3.0"]
-    [clojusc/twig "0.2.3"]
+    [clojusc/twig "0.2.4"]
     [com.stuartsierra/component "0.3.1"]
     [compojure "1.5.1"]
     [dire "0.5.4"]
