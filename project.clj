@@ -17,7 +17,7 @@
     [leiningen-core "2.7.1" :exclusions [org.clojure/clojure]]
     [org.clojure/clojure "1.8.0"]
     [org.clojure/tools.cli "0.3.5"]
-    [ring.middleware.logger "0.5.0"]
+    [ring.middleware.logger "0.5.0" :exclusions [org.slf4j/slf4j-log4j12]]
     [ring/ring-core "1.5.0"]
     [ring/ring-defaults "0.2.1"]
     [ring/ring-devel "1.5.0"]
@@ -61,5 +61,4 @@
         [org.clojure/tools.nrepl "0.2.12"]]
       :plugins [[lein-ring "0.9.7"]]
       :source-paths ["dev-resources/src"]
-      :repl-options {:init-ns example-rest.dev}
-      }})
+      :repl-options {:init-ns example-rest.dev}}})
