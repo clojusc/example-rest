@@ -8,13 +8,13 @@
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [
-    [clj-http "3.2.0"]
+    [clj-http "3.3.0"]
     [clojusc/twig "0.2.3"]
     [com.stuartsierra/component "0.3.1"]
     [compojure "1.5.1"]
     [dire "0.5.4"]
     [http-kit "2.2.0"]
-    [leiningen-core "2.7.0" :exclusions [org.clojure/clojure]]
+    [leiningen-core "2.7.1" :exclusions [org.clojure/clojure]]
     [org.clojure/clojure "1.8.0"]
     [org.clojure/tools.cli "0.3.5"]
     [ring.middleware.logger "0.5.0"]
@@ -45,7 +45,7 @@
       :integration :integration}}
     :doc {
       :plugins [
-        [lein-codox "0.9.7"]]
+        [lein-codox "0.10.0"]]
       :codox {
         :project {:name "example-rest"}
         :output-path "docs/master/current"
